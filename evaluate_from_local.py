@@ -20,7 +20,8 @@ max_new_tokens = 2048
 random.seed(12345)
 
 def load_mmlu_pro():
-    dataset = load_dataset("TIGER-Lab/MMLU-Pro")
+
+    dataset = load_dataset("/root/codespace/gaozhitao/PSP_bmk/mmlu_pro/data")
     test_df, val_df = dataset["test"], dataset["validation"]
     test_df = preprocess(test_df)
     val_df = preprocess(val_df)
@@ -235,6 +236,8 @@ def main():
         if subject not in sta_dict:
             sta_dict[subject] = {"corr": 0.0, "wrong": 0.0, "accu": 0.0}
         test_df = select_by_category(full_test_df, subject)
+        sample_size = max(1, int(len(test_df) * 0.1)) 
+        test_df = random.sample(test_df, sample_size)
         val_df = select_by_category(full_val_df, subject)
         output_path = os.path.join(save_result_dir, "{}.json".format(subject))
         acc, corr_count, wrong_count = eval_cot(subject, model, tokenizer, val_df, test_df, output_path)
