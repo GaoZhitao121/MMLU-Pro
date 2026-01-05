@@ -17,3 +17,4 @@ Average accuracy 0.6076 - psychology
 
 ------average acc sta------
 Average accuracy: 0.5861
+

@@ -8,25 +8,32 @@ gpu_util=0.9
 
 # 2. 定义待测评的模型路径列表（空格隔开）
 models=(
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_0101/models/psp_round_1"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_0101/models/psp_round_2"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_0101/models/psp_round_3"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_0101/models/psp_round_4"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_0101/models/psp_round_5"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_wo_staggered_0101/models/psp_round_1"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_wo_staggered_0101/models/psp_round_2"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_wo_staggered_0101/models/psp_round_3"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_wo_staggered_0101/models/psp_round_4"
-    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_wo_staggered_0101/models/psp_round_5"
-    "/root/codespace/hf_resources/Qwen2.5-32B-Instruct"
-    "/root/codespace/hf_resources/Llama-3.2-3B-Instruct"
-
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_32B_KTO_wo_staggered_0103/models/psp_round_1"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_32B_KTO_wo_staggered_0103/models/psp_round_2"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_32B_KTO_wo_staggered_0103/models/psp_round_3"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_32B_KTO_wo_staggered_0103/models/psp_round_4"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_32B_KTO_wo_staggered_0103/models/psp_round_5"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_a_0104/models/psp_round_1"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_a_0104/models/psp_round_2"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_a_0104/models/psp_round_3"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_a_0104/models/psp_round_4"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_a_0104/models/psp_round_5"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_c_0104/models/psp_round_1"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_c_0104/models/psp_round_2"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_c_0104/models/psp_round_3"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_c_0104/models/psp_round_4"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_c_0104/models/psp_round_5"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_q_0104/models/psp_round_1"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_q_0104/models/psp_round_2"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_q_0104/models/psp_round_3"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_q_0104/models/psp_round_4"
+    "/root/codespace/gaozhitao/PSP/experiments/Qwen2.5_7B_KTO_staggered_wo_q_0104/models/psp_round_5"
 )
 
 # 3. 进入项目根目录执行测评
 # 注意：假设此脚本放在 scripts/examples/ 目录下，所以需要 cd ../../
 cd ../../
-export CUDA_VISIBLE_DEVICES=3
+export CUDA_VISIBLE_DEVICES=1
 
 # 4. 循环遍历模型并执行测评
 for model_path in "${models[@]}"
